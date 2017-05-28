@@ -11,7 +11,8 @@ data = pd.read_csv('weather.csv')
 
 #Delete unused column
 
-
+#Remove the bad samples
+data = data[(data['Max TemperatureF'] < 110) & (data['Min TemperatureF'] > 25)]
 
 #Plots of min, max and mean temperature in Fahrenheit scale
 
@@ -33,4 +34,5 @@ print(u)
 
 #Replace ZIP Code to City name
 
-#plot USA Map
+
+#
