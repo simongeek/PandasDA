@@ -24,6 +24,10 @@ data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 # Remove the bad samples in temperature
 data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
 
+# List unique values on example column using drop_duplicates(We can also use unique())
+df2 = pd.DataFrame(data, columns=['ZIP'])
+u = df2.drop_duplicates(['ZIP'])
+print(u)
 
 # Get data for cities
 sf = data.loc[data['ZIP'] == 94107] # San Francisco ZIP Code
@@ -35,9 +39,9 @@ sj = data.loc[data['ZIP'] == 95113] # San Jose ZIP Code
 # Plots of min, max and mean temperature in Fahrenheit scale
 
 plt.figure()
-df1 = pd.DataFrame(sf, columns=['maxTemp', 'minTemp', 'meanTemp'])
+df1 = pd.DataFrame(mv, columns=['maxTemp', 'minTemp', 'meanTemp'])
 plt.plot(df1, '-')
-plt.axis([0, 367, 0, 140])
+plt.axis([0, 1850, 0, 140])
 plt.grid(True)
 plt.xlabel('Day')
 plt.ylabel('Temp F')
@@ -45,10 +49,5 @@ plt.title('Fahrenheit Temperature')
 plt.legend(["Max T", "Min T", "Mean T"])
 plt.show()
 
-# List unique values on example column using drop_duplicates(We can also use unique())
-df2 = pd.DataFrame(data, columns=['ZIP'])
-u = df2.drop_duplicates(['ZIP'])
-print(u)
-
-# Plots compare mean humidity with mean temperature
+# Set Up histogram of mean temperature in Bay Area cities
 
