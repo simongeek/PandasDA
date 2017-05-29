@@ -21,6 +21,8 @@ new_names = ['maxTemp', 'minTemp', 'meanTemp', 'maxDew', 'meanDew', 'minDew', 'm
              'minVis', 'maxWind', 'meanWind', 'maxGust', 'preIn', 'cloud', 'WindDir']
 data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
+
+
 # Remove the bad samples in temperature
 data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
 
@@ -52,9 +54,6 @@ plt.title('Fahrenheit Mean Temperature on Bay Area Cities')
 plt.legend(["San Francisco", "San Mateo","Santa Clara", "Mountain View","San Jose"])
 plt.show()
 
-# Set Up histogram of mean temperature in Bay Area cities
-
-
-
+# Plot compare Mean Wind and Max Gust
 
 
