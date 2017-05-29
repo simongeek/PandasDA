@@ -39,14 +39,13 @@ sj = data.loc[data['ZIP'] == 95113] # San Jose ZIP Code
 # Plots of min, max and mean temperature in Fahrenheit scale
 
 plt.figure()
-df1 = pd.DataFrame(mv, columns=['maxTemp', 'minTemp', 'meanTemp'])
-plt.plot(df1, '-')
-plt.axis([0, 1850, 0, 140])
+df1 = pd.DataFrame(sc, columns=['meanTemp'])
+plt.plot(df1.as_matrix(),'-')
 plt.grid(True)
 plt.xlabel('Day')
 plt.ylabel('Temp F')
 plt.title('Fahrenheit Temperature')
-plt.legend(["Max T", "Min T", "Mean T"])
+plt.legend(["Mean T"])
 plt.show()
 
 # Set Up histogram of mean temperature in Bay Area cities
