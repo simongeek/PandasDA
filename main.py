@@ -29,23 +29,27 @@ df2 = pd.DataFrame(data, columns=['ZIP'])
 u = df2.drop_duplicates(['ZIP'])
 print(u)
 
-# Get data for cities
-sf = data.loc[data['ZIP'] == 94107] # San Francisco ZIP Code
-sm = data.loc[data['ZIP'] == 94063] # San Mateo ZIP Code
-sc = data.loc[data['ZIP'] == 94301] # Santa Clara ZIP Code
-mv = data.loc[data['ZIP'] == 94041] # Mountain View ZIP Code
-sj = data.loc[data['ZIP'] == 95113] # San Jose ZIP Code
 
-# Plots of min, max and mean temperature in Fahrenheit scale
+# Get data for cities
+# 94107 -> San Francisco
+# 94063 -> San Mateo
+# 94301 -> Santa Clara
+# 94041 -> Mountain View
+# 95113 -> San Jose
+zipcodes = [94107, 94063, 94301, 94041, 95113]
+
+# Plots of Mean temperature in Fahrenheit scale
 
 plt.figure()
-df1 = pd.DataFrame(sc, columns=['meanTemp'])
-plt.plot(df1.as_matrix(),'-')
+for zcode in zipcodes:
+  local = data.loc[data['ZIP'] == zcode]
+  df1 = pd.DataFrame(local, columns=['meanTemp'])
+  plt.plot(df1.as_matrix(), '-', label=str(zcode))
 plt.grid(True)
 plt.xlabel('Day')
-plt.ylabel('Temp F')
-plt.title('Fahrenheit Temperature')
-plt.legend(["Mean T"])
+plt.ylabel('Temperature in Fahrenheit scale')
+plt.title('Fahrenheit Mean Temperature on Bay Area Cities')
+plt.legend(["San Francisco", "San Mateo","Santa Clara", "Mountain View","San Jose"])
 plt.show()
 
 # Set Up histogram of mean temperature in Bay Area cities
