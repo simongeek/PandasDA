@@ -51,3 +51,7 @@ plt.show()
 
 # Set Up histogram of mean temperature in Bay Area cities
 
+
+
+
+
