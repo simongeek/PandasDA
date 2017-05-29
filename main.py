@@ -21,20 +21,23 @@ new_names = ['maxTemp', 'minTemp', 'meanTemp', 'maxDew', 'meanDew', 'minDew', 'm
              'minVis', 'maxWind', 'meanWind', 'maxGust', 'preIn', 'cloud', 'WindDir']
 data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
-# Get data for first year
-
-
-
-
 # Remove the bad samples in temperature
-data = data[(data['maxTemp'] < 110) & (data['minTemp'] > 25)]
+data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
+
+
+# Get data for cities
+sf = data.loc[data['ZIP'] == 94107] # San Francisco ZIP Code
+sm = data.loc[data['ZIP'] == 94063] # San Mateo ZIP Code
+sc = data.loc[data['ZIP'] == 94301] # Santa Clara ZIP Code
+mv = data.loc[data['ZIP'] == 94041] # Mountain View ZIP Code
+sj = data.loc[data['ZIP'] == 95113] # San Jose ZIP Code
 
 # Plots of min, max and mean temperature in Fahrenheit scale
 
 plt.figure()
-df1 = pd.DataFrame(data, columns=['maxTemp', 'minTemp', 'meanTemp'])
+df1 = pd.DataFrame(sf, columns=['maxTemp', 'minTemp', 'meanTemp'])
 plt.plot(df1, '-')
-plt.axis([0, 1850, 0, 140])
+plt.axis([0, 367, 0, 140])
 plt.grid(True)
 plt.xlabel('Day')
 plt.ylabel('Temp F')
@@ -49,6 +52,3 @@ print(u)
 
 # Plots compare mean humidity with mean temperature
 
-
-
-print(data['meanTemp'])
