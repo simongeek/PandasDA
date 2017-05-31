@@ -56,4 +56,14 @@ plt.show()
 
 # Plot compare Mean Wind and Max Gust
 
-
+plt.figure()
+for zcode in zipcodes:
+    mw = data.loc[data['ZIP'] == zcode]
+    df3 = pd.DataFrame(mw, columns=['meanWin', 'maxGust'])
+    plt.plot(df3.as_matrix(),'-', label=str(zcode))
+plt.grid(True)
+plt.xlabel('Day')
+plt.ylabel('MPH')
+plt.title('Mean Wind and Max Gust')
+plt.legend(["Mean Wind","Max Gust"])
+plt.show()
