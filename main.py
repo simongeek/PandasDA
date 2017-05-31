@@ -22,6 +22,10 @@ new_names = ['maxTemp', 'minTemp', 'meanTemp', 'maxDew', 'meanDew', 'minDew', 'm
 data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
 
+# Set Fahrenheit Scale to Celsius Scale F -> *C
+
+
+
 
 # Remove the bad samples in temperature
 data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
@@ -67,3 +71,27 @@ plt.ylabel('MPH')
 plt.title('Mean Wind and Max Gust')
 plt.legend(["Mean Wind","Max Gust"])
 plt.show()
+
+# Plot min/max temperature with mean humidity example for San Francisco
+
+sf = data.loc[data['ZIP'] == 94107]
+plt.figure()
+df4 = pd.DataFrame(sf, columns=['minTemp','maxTemp','meanHum'])
+plt.plot(df4, '-')
+plt.grid(True)
+plt.xlabel('Days')
+plt.ylabel('x')
+plt.title('')
+plt.legend(["Min Temp","Max Temp", "Mean Humidity"])
+plt.show()
+
+
+# Plot Raining and Cloud Cover example for San Francisco
+
+
+
+
+
+
+
+# Plot Wind Speed and Wind Dir Degree example for San Francisco
