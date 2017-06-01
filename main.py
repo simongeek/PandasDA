@@ -23,8 +23,10 @@ data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
 
 # Set Fahrenheit Scale to Celsius Scale F -> *C
-
-
+"""
+for column in data(['minTemp, meanTemp, maxTemp']):
+    print(column)
+"""
 
 
 # Remove the bad samples in temperature
@@ -88,10 +90,25 @@ plt.show()
 
 # Plot Raining and Cloud Cover example for San Francisco
 
-
-
-
-
-
+plt.figure()
+df5 = pd.DataFrame(sf, columns=['preIn','cloud'])
+plt.plot(df5, '-')
+plt.grid(True)
+plt.xlabel('Days')
+plt.ylabel('XXX')
+plt.title('XXXXX')
+plt.legend(["preIn","Cloud"])
+plt.show()
 
 # Plot Wind Speed and Wind Dir Degree example for San Francisco
+
+plt.figure()
+df6 = pd.DataFrame(sf, columns=['meanWind', 'WinDir'])
+plt.plot(df6,'-')
+plt.grid(True)
+plt.xlabel('Days')
+plt.ylabel('ss')
+plt.title('Mean Wind and Wind Dir Degree')
+plt.legend(["Mean Wind", "Wind Dir Degree"])
+plt.show()
+
