@@ -74,22 +74,23 @@ plt.title('Mean Wind and Max Gust')
 plt.legend(["Mean Wind","Max Gust"])
 plt.show()
 
-# Plot min/max temperature with mean humidity example for San Francisco
+# Plot mean temperature with mean humidity example for San Francisco
 
 sf = data.loc[data['ZIP'] == 94107]
 plt.figure()
-df4 = pd.DataFrame(sf, columns=['minTemp','maxTemp','meanHum'])
+df4 = pd.DataFrame(sf, columns=['meanTemp','meanHum'])
 plt.plot(df4, '-')
 plt.grid(True)
+plt.autoscale()
 plt.xlabel('Days')
 plt.ylabel('x')
 plt.title('')
-plt.legend(["Min Temp","Max Temp", "Mean Humidity"])
+plt.legend(["Mean Temp", "Mean Humidity"])
 plt.show()
 
 
 # Plot Raining and Cloud Cover example for San Francisco
-
+"""
 plt.figure()
 df5 = pd.DataFrame(sf, columns=['preIn','cloud'])
 plt.plot(df5, '-')
@@ -111,4 +112,17 @@ plt.ylabel('ss')
 plt.title('Mean Wind and Wind Dir Degree')
 plt.legend(["Mean Wind", "Wind Dir Degree"])
 plt.show()
+"""
+# Correlation between two columns
 
+sns.lmplot(x='meanTemp', y='meanHum', data=data)
+plt.show()
+
+
+# Histogram
+
+
+# Pivot tables
+
+
+# Heat map of Rain day per day (one year cycle)
