@@ -22,7 +22,6 @@ new_names = ['maxTemp', 'minTemp', 'meanTemp', 'maxDew', 'meanDew', 'minDew', 'm
 data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
 
-
 # Remove the bad samples in temperature
 data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
 
@@ -91,8 +90,11 @@ plt.xticks(x,labels,rotation='vertical', fontsize=12)
 plt.legend(["Mean Temp", "Mean Humidity"])
 plt.show()
 
+# replace '' string with blank values to zero in CSV file
 
-# Plot Raining and Cloud Cover example for San Francisco
+data.fillna(0, inplace=True)
+
+
 """
 
 # Plot Wind Speed and Wind Dir Degree example for San Francisco
@@ -116,8 +118,8 @@ plt.show()
 # Histogram of Mean Temperature in All cities in Bay Area
 
 plot_hist = plt.hist(data['meanTemp'], bins=10)
-plot_hist = plt.xlabel('Temperature [F]')
-plot_hist = plt.ylabel('Amount')
+plt.xlabel('Temperature [F]')
+plt.ylabel('Amount')
 plt.show()
 
 # Pivot tables
@@ -125,22 +127,18 @@ plt.show()
 
 # Heat map
 
-# Plot Raining and Cloud Cover example for San Francisco
+# Plot Area compare Cloud Level and Event such as rain, rain-thunderstorm, fog or fog-rain example for San Francisco
 
-plt.figure()
-sj = data.loc[data['ZIP'] == 95113]
-df7 = pd.DataFrame(sj, columns=['cloud','events'])
-plt.plot(df7, '-')
-plt.grid(True)
+data['events'].replace(['Rain','Rain-Thunderstorm','Fog','Fog-Rain'],[1,1,0,1],inplace=True)
+sf = data.loc[data['ZIP'] == 94107]
+df7 = pd.DataFrame(sf, columns=['cloud','events'])
+df7.plot.area(stacked=False)
 plt.xlabel('Month')
-plt.ylabel('lxx', fontsize=15)
-plt.autoscale()
-plt.title('SSSASA',fontsize=20)
+plt.ylabel('Cloud Level', fontsize=15)
+plt.title('Cloud Level with Events: Rain, Storm, Fog etc.',fontsize=20)
 plt.xticks(x,labels,rotation='vertical', fontsize=12)
-plt.legend(["Cloud","PreIn"])
+plt.legend(["Cloud","Rain?"])
 plt.show()
 
-# Visibility
 
-
-# Rain + Humidity
+print(data)
