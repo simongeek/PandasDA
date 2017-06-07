@@ -22,11 +22,6 @@ new_names = ['maxTemp', 'minTemp', 'meanTemp', 'maxDew', 'meanDew', 'minDew', 'm
 data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
 
-# Set Fahrenheit Scale to Celsius Scale F -> *C
-"""
-for column in data(['minTemp, meanTemp, maxTemp']):
-    print(column)
-"""
 
 # Remove the bad samples in temperature
 data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
@@ -45,6 +40,7 @@ print(data['cloud'])
 # 95113 -> San Jose
 zipcodes = [94107, 94063, 94301, 94041, 95113]
 
+# Day of months: start September, end August
 x = [30, 61, 91, 122, 153, 182, 213, 243, 274, 304, 335, 366]
 labels = ['September','October','November','December','January','February','March','April','May','June','July','August']
 
@@ -58,7 +54,7 @@ for zcode in zipcodes:
 
 plt.xticks(x,labels,rotation='vertical')
 plt.grid(True)
-plt.xlabel('Day')
+plt.xlabel('Month')
 plt.ylabel('Temperature in Fahrenheit scale')
 plt.title('Fahrenheit Mean Temperature on Bay Area Cities')
 plt.legend(["San Francisco", "San Mateo","Santa Clara", "Mountain View","San Jose"])
@@ -74,7 +70,7 @@ for zcode in zipcodes:
 
 plt.xticks(x,labels,rotation='vertical')
 plt.grid(True)
-plt.xlabel('Day')
+plt.xlabel('Month')
 plt.ylabel('MPH')
 plt.title('Mean Wind and Max Gust')
 plt.legend(["Mean Wind","Max Gust"])
@@ -88,7 +84,7 @@ df4 = pd.DataFrame(sf, columns=['meanTemp','meanHum'])
 plt.plot(df4, '-')
 plt.grid(True)
 plt.autoscale()
-plt.xlabel('Days')
+plt.xlabel('Month')
 plt.ylabel('x')
 plt.title('')
 plt.xticks(x,labels,rotation='vertical')
@@ -129,14 +125,14 @@ plt.show()
 
 # Heat map
 
-# # Plot Raining and Cloud Cover example for San Francisco
+# Plot Raining and Cloud Cover example for San Francisco
 
 plt.figure()
 sj = data.loc[data['ZIP'] == 95113]
 df7 = pd.DataFrame(sj, columns=['cloud','events'])
 plt.plot(df7, '-')
 plt.grid(True)
-plt.xlabel('xxx')
+plt.xlabel('Month')
 plt.ylabel('lxx')
 plt.autoscale()
 plt.title('SSSASA')
