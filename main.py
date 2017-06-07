@@ -15,10 +15,10 @@ old_names = ['Max TemperatureF', 'Min TemperatureF', 'Mean TemperatureF', 'Max D
              ' Mean Humidity', ' Min Humidity', ' Max Sea Level PressureIn', ' Mean Sea Level PressureIn',
              ' Min Sea Level PressureIn', ' Max VisibilityMiles', ' Mean VisibilityMiles',
              ' Min VisibilityMiles', ' Max Wind SpeedMPH', ' Mean Wind SpeedMPH', ' Max Gust SpeedMPH', 'PrecipitationIn',
-             ' CloudCover', ' WindDirDegrees']
+             ' CloudCover', ' WindDirDegrees', ' Events']
 new_names = ['maxTemp', 'minTemp', 'meanTemp', 'maxDew', 'meanDew', 'minDew', 'maxHum', 'meanHum', 'minHum', 'maxPress',
              'minPress', 'meanPress', 'maxVis', 'meanVis',
-             'minVis', 'maxWind', 'meanWind', 'maxGust', 'preIn', 'cloud', 'WindDir']
+             'minVis', 'maxWind', 'meanWind', 'maxGust', 'preIn', 'cloud', 'WindDir', 'events']
 data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
 
@@ -27,7 +27,6 @@ data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 for column in data(['minTemp, meanTemp, maxTemp']):
     print(column)
 """
-
 
 # Remove the bad samples in temperature
 data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
@@ -46,6 +45,9 @@ print(data['cloud'])
 # 95113 -> San Jose
 zipcodes = [94107, 94063, 94301, 94041, 95113]
 
+x = [30, 61, 91, 122, 153, 182, 213, 243, 274, 304, 335, 366]
+labels = ['September','October','November','December','January','February','March','April','May','June','July','August']
+
 # Plots of Mean temperature in Fahrenheit scale
 
 plt.figure()
@@ -53,6 +55,8 @@ for zcode in zipcodes:
   local = data.loc[data['ZIP'] == zcode]
   df1 = pd.DataFrame(local, columns=['meanTemp'])
   plt.plot(df1.as_matrix(), '-', label=str(zcode))
+
+plt.xticks(x,labels,rotation='vertical')
 plt.grid(True)
 plt.xlabel('Day')
 plt.ylabel('Temperature in Fahrenheit scale')
@@ -67,6 +71,8 @@ for zcode in zipcodes:
     mw = data.loc[data['ZIP'] == zcode]
     df3 = pd.DataFrame(mw, columns=['meanWin', 'maxGust'])
     plt.plot(df3.as_matrix(),'-', label=str(zcode))
+
+plt.xticks(x,labels,rotation='vertical')
 plt.grid(True)
 plt.xlabel('Day')
 plt.ylabel('MPH')
@@ -85,21 +91,13 @@ plt.autoscale()
 plt.xlabel('Days')
 plt.ylabel('x')
 plt.title('')
+plt.xticks(x,labels,rotation='vertical')
 plt.legend(["Mean Temp", "Mean Humidity"])
 plt.show()
 
 
 # Plot Raining and Cloud Cover example for San Francisco
 """
-plt.figure()
-df5 = pd.DataFrame(sf, columns=['preIn','cloud'])
-plt.plot(df5, '-')
-plt.grid(True)
-plt.xlabel('Days')
-plt.ylabel('XXX')
-plt.title('XXXXX')
-plt.legend(["preIn","Cloud"])
-plt.show()
 
 # Plot Wind Speed and Wind Dir Degree example for San Francisco
 
@@ -119,28 +117,32 @@ sns.lmplot(x='meanTemp', y='meanHum', data=data)
 plt.show()
 """
 
-# Histogram
+# Histogram of Mean Temperature in All cities in Bay Area
 
+plot_hist = plt.hist(data['meanTemp'], bins=10)
+plot_hist = plt.xlabel('Temperature [F]')
+plot_hist = plt.ylabel('Amount')
+plt.show()
 
 # Pivot tables
 
 
 # Heat map
 
-# Cloud Cover in Bay Area
+# # Plot Raining and Cloud Cover example for San Francisco
 
 plt.figure()
-cc = data.loc[data['ZIP'] == 94041]
-df7 = pd.DataFrame(cc, columns=['cloud','meanHum'])
+sj = data.loc[data['ZIP'] == 95113]
+df7 = pd.DataFrame(sj, columns=['cloud','events'])
 plt.plot(df7, '-')
 plt.grid(True)
 plt.xlabel('xxx')
 plt.ylabel('lxx')
 plt.autoscale()
 plt.title('SSSASA')
-plt.legend(["Mountain View"])
+plt.xticks(x,labels,rotation='vertical')
+plt.legend(["Cloud","PreIn"])
 plt.show()
-
 
 # Visibility
 
