@@ -95,20 +95,6 @@ plt.show()
 data.fillna(0, inplace=True)
 
 
-"""
-
-# Plot Wind Speed and Wind Dir Degree example for San Francisco
-
-plt.figure()
-df6 = pd.DataFrame(sf, columns=['meanWind', 'WinDir'])
-plt.plot(df6,'-')
-plt.grid(True)
-plt.xlabel('Days')
-plt.ylabel('ss')
-plt.title('Mean Wind and Wind Dir Degree')
-plt.legend(["Mean Wind", "Wind Dir Degree"])
-plt.show()
-"""
 # Correlation between two columns
 """
 sns.lmplot(x='meanTemp', y='meanHum', data=data)
