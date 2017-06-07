@@ -114,10 +114,10 @@ plt.legend(["Mean Wind", "Wind Dir Degree"])
 plt.show()
 """
 # Correlation between two columns
-
+"""
 sns.lmplot(x='meanTemp', y='meanHum', data=data)
 plt.show()
-
+"""
 
 # Histogram
 
@@ -125,4 +125,24 @@ plt.show()
 # Pivot tables
 
 
-# Heat map of Rain day per day (one year cycle)
+# Heat map
+
+# Cloud Cover in Bay Area
+
+plt.figure()
+cc = data.loc[data['ZIP'] == 94041]
+df7 = pd.DataFrame(cc, columns=['cloud','meanHum'])
+plt.plot(df7, '-')
+plt.grid(True)
+plt.xlabel('xxx')
+plt.ylabel('lxx')
+plt.autoscale()
+plt.title('SSSASA')
+plt.legend(["Mountain View"])
+plt.show()
+
+
+# Visibility
+
+
+# Rain + Humidity
