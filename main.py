@@ -75,12 +75,12 @@ plt.title('Mean Wind and Max Gust', fontsize=20)
 plt.legend(["Mean Wind","Max Gust"])
 plt.show()
 
-# Plot mean temperature with mean humidity example for San Francisco
+# Plot mean temperature with mean humidity for San Francisco
 
 sf = data.loc[data['ZIP'] == 94107]
 plt.figure()
 df4 = pd.DataFrame(sf, columns=['meanTemp','meanHum'])
-plt.plot(df4, '-')
+plt.plot(df4.as_matrix(), '-')
 plt.grid(True)
 plt.autoscale()
 plt.xlabel('Month')
@@ -120,11 +120,33 @@ sf = data.loc[data['ZIP'] == 94107]
 df7 = pd.DataFrame(sf, columns=['cloud','events'])
 df7.plot.area(stacked=False)
 plt.xlabel('Month')
-plt.ylabel('Cloud Level', fontsize=15)
+plt.ylabel('Cloud Level', fontsize=18)
 plt.title('Cloud Level with Events: Rain, Storm, Fog etc.',fontsize=20)
 plt.xticks(x,labels,rotation='vertical', fontsize=12)
-plt.legend(["Cloud","Rain?"])
+plt.legend(["Cloud","Rain: 1-yes, 0-no"])
 plt.show()
 
+
+# Plot of min, max and mean pressure for San Francisco
+
+sf = data.loc[data['ZIP'] == 94107]
+plt.figure()
+df8 = pd.DataFrame(sf, columns=['minPress','meanPress','maxPress'])
+plt.plot(df8.as_matrix(), '-')
+plt.grid(True)
+plt.autoscale()
+plt.xlabel('Month')
+plt.ylabel('inHg', fontsize=18)
+plt.title('Min, Mean and Max Pressure for San Francisco',fontsize=20)
+plt.xticks(x,labels,rotation='vertical', fontsize=12)
+plt.legend(["Minimum Pressure", "Mean Pressure","Maximum Pressure"])
+plt.show()
+
+
+# Plot of Rain and humidity
+
+
+
+# Cloud Lever + Visibility
 
 print(data)
