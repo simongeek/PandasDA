@@ -22,6 +22,10 @@ new_names = ['maxTemp', 'minTemp', 'meanTemp', 'maxDew', 'meanDew', 'minDew', 'm
 data.rename(columns=dict(zip(old_names, new_names)), inplace=True)
 
 
+# Delete unused column in CSV File
+
+del data['preIn']
+
 # Remove the bad samples in temperature
 data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
 
@@ -29,7 +33,7 @@ data = data[(data['maxTemp'] <= 110) & (data['minTemp'] >= 25)]
 df2 = pd.DataFrame(data, columns=['ZIP'])
 u = df2.drop_duplicates(['ZIP'])
 
-print(data['cloud'])
+
 
 # Get data for cities
 # 94107 -> San Francisco
@@ -145,27 +149,46 @@ plt.show()
 
 plt.figure()
 df9 = pd.DataFrame(sf, columns=['events','meanHum'])
-plt.plot(df9.as_matrix(), '-')
-plt.xlabel('')
+plt.plot(df9, '-')
+plt.xlabel('Month')
 plt.ylabel('')
-plt.title('')
+plt.title('Plot compare Events such as Rain, Fog etc. with mean Humidity', fontsize=20)
 plt.xticks(x,labels,rotation='vertical', fontsize=12)
 plt.legend(["Rain?", "Mean Humidity"])
 plt.show()
 
 
-# Cloud Lever + Visibility
+# Area Plot compare Cloud Lever and Visibility
+
+"""
+
+Poniższą wizualizację chcę zaprezentować w inny sposób(którą chcę z Panem skonsultować), poniższa to tylko 
+wersja robocza.
 
 
-plt.figure()
-df10 = pd.DataFrame(sf, columns=['cloud','meanVis'])
-plt.plot(df10.as_matrix(), '-')
-plt.xlabel('')
+"""
+df10 = pd.DataFrame(sf, columns=['cloud','minVis'])
+df10.plot.area(stacked=False)
+plt.xlabel('Month')
 plt.ylabel('')
-plt.title('')
+plt.title('Plot compare Cloud Level and Mean Visibility', fontsize=20)
 plt.xticks(x,labels,rotation='vertical', fontsize=12)
 plt.legend(["Cloud Lever","Mean Visibility"])
 plt.show()
 
 
+
+"""
+
+Chcę jeszcze zademonstrować wizualizację za pomocą Heat Map* oraz innych rodzajów wykresów takich jak scatter, aby
+wykorzystać bardziej Pandas i jej możliwości.
+
+
+*Czy jest też sens robienia heatmap dla tych danych? Musiałbym wycinać dane np. dla jednego miesiąca, czy nawet
+tygodnia, aby było cokolwiek widać.
+
+"""
+
+
+# Print all data from CSV file
 print(data)
