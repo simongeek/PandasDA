@@ -108,10 +108,6 @@ plt.xlabel('Temperature [F]')
 plt.ylabel('Amount')
 plt.show()
 
-# Pivot tables
-
-
-# Heat map
 
 # Plot Area compare Cloud Level and Event such as rain, rain-thunderstorm, fog or fog-rain example for San Francisco
 
@@ -128,6 +124,7 @@ plt.show()
 
 
 # Plot of min, max and mean pressure for San Francisco
+
 
 sf = data.loc[data['ZIP'] == 94107]
 plt.figure()
@@ -146,7 +143,29 @@ plt.show()
 # Plot of Rain and humidity
 
 
+plt.figure()
+df9 = pd.DataFrame(sf, columns=['events','meanHum'])
+plt.plot(df9.as_matrix(), '-')
+plt.xlabel('')
+plt.ylabel('')
+plt.title('')
+plt.xticks(x,labels,rotation='vertical', fontsize=12)
+plt.legend(["Rain?", "Mean Humidity"])
+plt.show()
+
 
 # Cloud Lever + Visibility
+
+
+plt.figure()
+df10 = pd.DataFrame(sf, columns=['cloud','meanVis'])
+plt.plot(df10.as_matrix(), '-')
+plt.xlabel('')
+plt.ylabel('')
+plt.title('')
+plt.xticks(x,labels,rotation='vertical', fontsize=12)
+plt.legend(["Cloud Lever","Mean Visibility"])
+plt.show()
+
 
 print(data)
