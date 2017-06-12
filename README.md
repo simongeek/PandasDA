@@ -2,7 +2,24 @@
 
 ## Project desciption
 
+This lead to analyzing a few weather factors:
+* temperature
+* humidity
+* pressure
+* wind speed
+* gust speed
+* cloud level
+* visibility
+* events such as rain, fog, thunderstorm
+
 ## What will you learn?
+
+
+You will learn:
+
+* How to read CSV files into Pandas Data Frame
+* How to clean the data, remove missing values, remove unused columns, replace names etc.
+* How to create plots, histograms and heat maps based on Pandas Data Frame
 
 ## Project structure
 
