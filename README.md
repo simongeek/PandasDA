@@ -14,7 +14,7 @@ For further analysis, parameters were choosen:
 * wind speed [MPH]
 * gust speed [MPH]
 * cloud level [0-10]
-* visibility []
+* visibility [%]
 * events such as rain, fog, thunderstorm
 
 ## What will you learn?
