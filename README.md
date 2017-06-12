@@ -1,13 +1,13 @@
 # Pandas + Seaborn tutorial on Weather data for San Francisco Bay Area in California
 
 Project analysys the weather on [San Francisco Bay Area region in California](https://en.wikipedia.org/wiki/San_Francisco_Bay_Area), exactly for cities like San Francisco, San Mateo, Santa Clara, Mountain View and San Jose.
-Data cleaning, manipulation and data transformation was done with use of Pandas. 
+Data cleaning, manipulation and data transformation was done with use of [Pandas](http://pandas.pydata.org/). 
 
 Sample plots:
 
 ## Project desciption
 
-This lead to analyzing a few weather factors:
+For further analysis, parameters were choosen:
 * temperature [F]
 * humidity [%]
 * pressure [inHg]
@@ -32,3 +32,7 @@ The project contains two file, first contains raw CSV data taken from [U.S. Gove
 The second file is Python script with all the pandas and seaborn code:
 * weather.csv - data file, generated from U.S. Government's open data website
 * main.py - main file with analysis and plots
+
+## Grab the code or run project in online IDE
+* You can [download code from GitHub](https://github.com/simongeek/PandasDA)
+* You can run the project in your browser
