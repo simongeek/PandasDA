@@ -5,6 +5,10 @@ Data cleaning, manipulation and data transformation was done with use of [Pandas
 
 Sample plots:
 
+![temperature](https://user-images.githubusercontent.com/11740059/27057008-8975a544-4fca-11e7-8f7c-33091ed7f21e.jpg)
+![temphum](https://user-images.githubusercontent.com/11740059/27057007-896ecd6e-4fca-11e7-91b6-88b25cc4baa9.jpg)
+![histogram](https://user-images.githubusercontent.com/11740059/27057006-89682f5e-4fca-11e7-983c-3c792115946b.jpg)
+
 ## Project desciption
 
 For further analysis, parameters were choosen:
