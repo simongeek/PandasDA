@@ -37,6 +37,13 @@ The second file is Python script with all the pandas and seaborn code:
 * weather.csv - data file, generated from U.S. Government's open data website
 * main.py - main file with analysis and plots
 
+## Resources
+
+* [Official Pandas Documentation](http://pandas.pydata.org/pandas-docs/stable/)
+You can also download it in [PDF version](http://pandas.pydata.org/pandas-docs/stable/pandas.pdf)
+* F.Anthony "Mastering Pandas"
+* M. Heydt "Learning Pandas"
+
 ## Grab the code or run project in online IDE
 * You can [download code from GitHub](https://github.com/simongeek/PandasDA)
 * You can run the project in your browser
