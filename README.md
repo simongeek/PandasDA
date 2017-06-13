@@ -40,7 +40,7 @@ The second file is Python script with all the pandas and seaborn code:
 ## Resources
 
 * [Official Pandas Documentation](http://pandas.pydata.org/pandas-docs/stable/)
-You can also download it in [PDF version](http://pandas.pydata.org/pandas-docs/stable/pandas.pdf)
+ You can also download it in [PDF version](http://pandas.pydata.org/pandas-docs/stable/pandas.pdf)
 * F.Anthony "Mastering Pandas"
 * M. Heydt "Learning Pandas"
 
