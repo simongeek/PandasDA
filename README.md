@@ -10,7 +10,8 @@ This project will introduce us to the basics of Pandas concept such as:
 * draw conclusions etc
 
 Why Pandas and Seaborn?
-You can easily pass Pandas Data Frame to Seaborn and plot data from interesting columns or rows.
++ You can easily pass Pandas Data Frame to Seaborn
++ Plot data from interesting columns or rows
 
 Sample plots:
 
