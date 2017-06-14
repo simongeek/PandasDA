@@ -3,7 +3,11 @@
 Project analysys the weather on [San Francisco Bay Area region in California](https://en.wikipedia.org/wiki/San_Francisco_Bay_Area), exactly for cities like San Francisco, San Mateo, Santa Clara, Mountain View and San Jose.
 Data cleaning, manipulation and data transformation was done with use of [Pandas](http://pandas.pydata.org/) - powerful Python data analysis toolkit. 
 Addionaly there are many visualization, where some of them were prepared with matplotlib and [seaborn](https://seaborn.pydata.org/) library.
-This project will introduce us to the basics of Pandas concept such as: [data frames](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html), [manipulation and data transformation](https://www.analyticsvidhya.com/blog/2016/01/12-pandas-techniques-python-data-manipulation/), data cleaning, draw conclusions etc.
+This project will introduce us to the basics of Pandas concept such as: 
+*[data frames](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html), 
+*[manipulation and data transformation](https://www.analyticsvidhya.com/blog/2016/01/12-pandas-techniques-python-data-manipulation/),
+*data cleaning, 
+*draw conclusions etc.
 
 Why Pandas and Seaborn?
 You can easily pass Pandas Data Frame to Seaborn and plot data from interesting columns or rows.
