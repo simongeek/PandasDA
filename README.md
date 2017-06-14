@@ -41,8 +41,8 @@ The second file is Python script with all the pandas and seaborn code:
 
 * [Official Pandas Documentation](http://pandas.pydata.org/pandas-docs/stable/)
  (You can also download it in [PDF version](http://pandas.pydata.org/pandas-docs/stable/pandas.pdf))
-* F.Anthony "Mastering Pandas"
-* M. Heydt "Learning Pandas"
+* [Femi Anthony "Mastering Pandas"](https://www.packtpub.com/big-data-and-business-intelligence/mastering-pandas)
+* [Michael Heydt "Learning Pandas"](https://www.amazon.com/Learning-Pandas-Python-Discovery-Analysis/dp/1783985127)
 
 ## Grab the code or run project in online IDE
 * You can [download code from GitHub](https://github.com/simongeek/PandasDA)
