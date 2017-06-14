@@ -5,13 +5,18 @@ Data cleaning, manipulation and data transformation was done with use of [Pandas
 Addionaly there are many visualization, where some of them were prepared with matplotlib and [seaborn](https://seaborn.pydata.org/) library.
 This project will introduce us to the basics of Pandas concept such as: [data frames](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html), [manipulation and data transformation](https://www.analyticsvidhya.com/blog/2016/01/12-pandas-techniques-python-data-manipulation/), data cleaning, draw conclusions etc.
 
-
+Why Pandas and Seaborn?
+You can easily pass Pandas Data Frame to Seaborn and plot data from interesting columns or rows.
 
 Sample plots:
 
 ![temperature](https://user-images.githubusercontent.com/11740059/27057008-8975a544-4fca-11e7-8f7c-33091ed7f21e.jpg)
 ![temphum](https://user-images.githubusercontent.com/11740059/27057007-896ecd6e-4fca-11e7-91b6-88b25cc4baa9.jpg)
 ![histogram](https://user-images.githubusercontent.com/11740059/27057006-89682f5e-4fca-11e7-983c-3c792115946b.jpg)
+
+Simple Youtube presentation what type of visualization is generated:
+
+
 
 ## Project desciption
 
