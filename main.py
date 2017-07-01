@@ -2,8 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from datetime import date, datetime, time
-import time
 import seaborn as sns
 
 # Import San Francisco Bay Area Weather data from CSV file
@@ -88,28 +86,22 @@ plt.plot(df4.as_matrix(), '-')
 plt.grid(True)
 plt.autoscale()
 plt.xlabel('Month')
-plt.ylabel('x', fontsize=15)
-plt.title('',fontsize=20)
+plt.ylabel('', fontsize=15)
+plt.title('Mean Temperature and Mean Humidity for San Francisco',fontsize=18)
 plt.xticks(x,labels,rotation='vertical', fontsize=12)
-plt.legend(["Mean Temp", "Mean Humidity"])
+plt.legend(["Mean Temperature[F]", "Mean Humidity[%]"], fontsize=15)
 plt.show()
 
 # replace '' string with blank values to zero in CSV file
 
 data.fillna(0, inplace=True)
 
-
-# Correlation between two columns
-"""
-sns.lmplot(x='meanTemp', y='meanHum', data=data)
-plt.show()
-"""
-
 # Histogram of Mean Temperature in All cities in Bay Area
 
 plot_hist = plt.hist(data['meanTemp'], bins=10)
-plt.xlabel('Temperature [F]')
-plt.ylabel('Amount')
+plt.xlabel('Temperature [F]', fontsize=15)
+plt.ylabel('Amount', fontsize=15)
+plt.title('Mean Temperature on San Francisco Bay Area', fontsize=20)
 plt.show()
 
 
@@ -143,7 +135,7 @@ plt.xticks(x,labels,rotation='vertical', fontsize=12)
 plt.legend(["Minimum Pressure", "Mean Pressure","Maximum Pressure"])
 plt.show()
 
-
+"""
 # Plot of Rain and humidity
 
 
@@ -160,13 +152,6 @@ plt.show()
 
 # Area Plot compare Cloud Lever and Visibility
 
-"""
-
-Poniższą wizualizację chcę zaprezentować w inny sposób(którą chcę z Panem skonsultować), poniższa to tylko 
-wersja robocza.
-
-
-"""
 df10 = pd.DataFrame(sf, columns=['cloud','minVis'])
 df10.plot.area(stacked=False)
 plt.xlabel('Month')
@@ -177,18 +162,7 @@ plt.legend(["Cloud Lever","Mean Visibility"])
 plt.show()
 
 
-
 """
-
-Chcę jeszcze zademonstrować wizualizację za pomocą Heat Map* oraz innych rodzajów wykresów takich jak scatter, aby
-wykorzystać bardziej Pandas i jej możliwości.
-
-
-*Czy jest też sens robienia heatmap dla tych danych? Musiałbym wycinać dane np. dla jednego miesiąca, czy nawet
-tygodnia, aby było cokolwiek widać.
-
-"""
-
 
 # Print all data from CSV file
 print(data)
